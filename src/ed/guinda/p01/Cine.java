@@ -26,15 +26,17 @@ public class Cine<P extends Pelicula> {
         Scanner scanner = new Scanner(System.in);
         for(int i=0; i<7 ; i++){//Como son 7 salas la condicion es facil
             salas.add(new Sala(i+1));//Cada sala se identificara con el numero
+        }
         for(int j=0; j<15;j++){
             System.out.println("Introduzca el nombre de la pelicula");
             String pelicula = scanner.next();
+            for(int i=0; i<7 ; i++){
             salas.get(i).addPelicula(pelicula);//Se introduce la pelicula al array
             int x = salas.get(i).Fetch(pelicula);
             System.out.println("Introduzca el numero de personas que visito esta pelicula");
             int visitas = scanner.nextInt();//Depues se pide el numero de visitas
             salas.get(i).peliculas.get(x).setNumero(visitas);
-            }
+             }
         }
     }
 }
