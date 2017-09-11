@@ -7,7 +7,7 @@ package ed.guinda.p01;
 
 /**
  *
- * @author HONORIO ZAIBACK
+ * @author Osvaldo Gonzalez
  */
 public class EDGuindaP01 {
 
@@ -15,7 +15,12 @@ public class EDGuindaP01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Cine cine = new Cine();
+        System.out.println("Bienvenido a Cinemex");
+        System.out.println("-----------------------------");
+        cine.mostView();
+        cine.registro();
     }
-    
+    //El proyecto era una version un poco mas complicada que nuestro trabajo de clase en POO
+    //Lo bueno es que todo lo tenia en mi repositorio
 }
