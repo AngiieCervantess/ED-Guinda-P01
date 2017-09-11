@@ -24,19 +24,41 @@ public class Cine<P extends Pelicula> {
     
     public void registro(){
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> ver = new ArrayList<>();
+        boolean rep;
+        String pelicula;
         for(int i=0; i<7 ; i++){//Como son 7 salas la condicion es facil
             salas.add(new Sala(i+1));//Cada sala se identificara con el numero
         }
         for(int j=0; j<15;j++){
             System.out.println("Introduzca el nombre de la pelicula");
-            String pelicula = scanner.next();
+            do{
+                rep = true;
+                pelicula = this.obtenerTexto();
+                if (ver.isEmpty()){
+                    rep = false;
+                    ver.add(pelicula);
+                }else{
+                    if (ver.contains(pelicula)){
+                        System.out.println("La pelicula ya esta registrada");
+                    }else{
+                        rep = false;
+                        ver.add(pelicula);
+                    }
+                }
+            }while (rep == true);
             for(int i=0; i<7 ; i++){
             salas.get(i).addPelicula(pelicula);//Se introduce la pelicula al array
             int x = salas.get(i).Fetch(pelicula);
-            System.out.println("Introduzca el numero de personas que visito esta pelicula");
+            System.out.println("Introduzca el numero de personas que visito esta pelicula en la sala no."+(i+1));
             int visitas = scanner.nextInt();//Depues se pide el numero de visitas
             salas.get(i).peliculas.get(x).setNumero(visitas);
              }
         }
+    }
+    
+    public String obtenerTexto (){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }
